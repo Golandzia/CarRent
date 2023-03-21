@@ -19,5 +19,20 @@
         <TextBox Style="{DynamicResource TextBoxAuthorization}"
             Grid.Row="1" Height="30" Width="240"
             />
+        <TextBox Style="{DynamicResource TextBoxAuthorization}"
+            Grid.Row="2" Height="30" Width="240"
+            />
+        <Label
+            Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center"
+            Margin="0,0,175,53"
+            Content="Login:" FontFamily="Taurus" Foreground="#FFD1DDEA" FontSize="16"/>
+        <Label
+            Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center"
+            Margin="0,0,135,53"
+            Content="Password:" FontFamily="Taurus" Foreground="#FFD1DDEA" FontSize="16"/>
+        <Button Style="{DynamicResource ButtonStyleLogin}"
+            Grid.Row="3" Height="35" Width="160" Background="#FFC8D0D7"
+            FontSize="17" Foreground="#FF0A1B36" FontFamily="Taurus" Margin="0,0,0,15"
+            >Login</Button>
     </Grid>
 </Window>

@@ -94,6 +94,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Resource Include="VisualResources\Taurus-bold_Font.ttf" />
     <Resource Include="VisualResources\Mexcellent_Font.ttf" />
   </ItemGroup>
   <ItemGroup>
