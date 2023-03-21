@@ -1,0 +1,23 @@
+﻿<Window x:Class="CarRent.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CarRent"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="400" Width="350">
+    <Grid Style="{DynamicResource GridBackgroundAllApp}">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Label Style="{DynamicResource LabelHeader}"
+            Grid.Row="0" Margin="0,15,0,0"
+            >Authorization</Label>
+        <TextBox Style="{DynamicResource TextBoxAuthorization}"
+            Grid.Row="1" Height="30" Width="240"
+            />
+    </Grid>
+</Window>
