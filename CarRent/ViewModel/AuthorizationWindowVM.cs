@@ -77,7 +77,7 @@ namespace CarRent.ViewModel
 
             if(await Authorize(Login, Password))
             {
-                MessageBox.Show("Complete!", "ZOEBIS!!!");
+                MessageBox.Show("Authorization Complete!", "Authorization");
                 ButtonDescription = "Login";
                 return;
             }
