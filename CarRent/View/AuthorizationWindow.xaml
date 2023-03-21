@@ -3,9 +3,14 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:CarRent"
+        xmlns:local="clr-namespace:CarRent" xmlns:local1="clr-namespace:CarRent.ViewModel"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
         Title="MainWindow" Height="400" Width="350">
+    <Window.DataContext>
+        <local1:AuthorizationWindowVM/>
+    </Window.DataContext>
     <Grid Style="{DynamicResource GridBackgroundAllApp}">
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -16,11 +21,13 @@
         <Label Style="{DynamicResource LabelHeader}"
             Grid.Row="0" Margin="0,15,0,0"
             >Authorization</Label>
-        <TextBox Style="{DynamicResource TextBoxAuthorization}"
+        <TextBox x:Name="txtboxLogin" Style="{DynamicResource TextBoxAuthorization}"
             Grid.Row="1" Height="30" Width="240"
+            Text="{Binding Login}"
             />
-        <TextBox Style="{DynamicResource TextBoxAuthorization}"
+        <TextBox x:Name="txtboxPassword" Style="{DynamicResource TextBoxAuthorization}"
             Grid.Row="2" Height="30" Width="240"
+                 Text="{Binding Password}"
             />
         <Label
             Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center"
@@ -31,8 +38,8 @@
             Margin="0,0,135,53"
             Content="Password:" FontFamily="Taurus" Foreground="#FFD1DDEA" FontSize="16"/>
         <Button Style="{DynamicResource ButtonStyleLogin}"
-            Grid.Row="3" Height="35" Width="160" Background="#FFC8D0D7"
-            FontSize="17" Foreground="#FF0A1B36" FontFamily="Taurus" Margin="0,0,0,15"
-            >Login</Button>
+            Grid.Row="3" Height="35" Width="160" Margin="0,0,0,15"
+            Content="{Binding ButtonDescription}" Click="Button_Click"
+            />
     </Grid>
 </Window>
