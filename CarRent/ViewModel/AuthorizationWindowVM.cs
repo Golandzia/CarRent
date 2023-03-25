@@ -1,6 +1,8 @@
 ﻿using CarRent.dbEntities;
+using CarRent.View.Windows;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data.Entity;
 using System.Linq;
 using System.Text;
@@ -77,7 +79,15 @@ namespace CarRent.ViewModel
 
             if(await Authorize(Login, Password))
             {
-                MessageBox.Show("Authorization Complete!", "Authorization");
+                var appWindow = new MainWorkspaceWindow(_agent);
+                appWindow.Show();
+                foreach (var item in App.Current.Windows)
+                {
+                    if (item is MainWindow)
+                    {
+                        (item as Window).Hide();
+                    }
+                }
                 ButtonDescription = "Login";
                 return;
             }

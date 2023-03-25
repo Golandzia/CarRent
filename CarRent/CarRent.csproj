@@ -64,7 +64,32 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="View\AuthorizationWindow.xaml">
+    <Compile Include="ViewModel\MainWorkspaceWindowVM.cs" />
+    <Compile Include="View\Pages\CarsPage.xaml.cs">
+      <DependentUpon>CarsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\RentersPage.xaml.cs">
+      <DependentUpon>RentersPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\RentsPage.xaml.cs">
+      <DependentUpon>RentsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Windows\MainWorkspaceWindow.xaml.cs">
+      <DependentUpon>MainWorkspaceWindow.xaml</DependentUpon>
+    </Compile>
+    <Page Include="View\Pages\CarsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Pages\RentersPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Pages\RentsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Windows\AuthorizationWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -117,10 +142,18 @@
     </Compile>
     <Compile Include="ViewModel\AuthorizationWindowVM.cs" />
     <Compile Include="ViewModel\BaseVM.cs" />
-    <Compile Include="View\AuthorizationWindow.xaml.cs">
+    <Compile Include="View\Windows\AuthorizationWindow.xaml.cs">
       <DependentUpon>AuthorizationWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\Windows\MainWorkspaceWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VisualResources\ResourceDictionarys\ButtonsDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="VisualResources\ResourceDictionarys\ViewDictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -156,9 +189,9 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Resource Include="VisualResources\Fonts\planet-n.ttf" />
     <Resource Include="VisualResources\Fonts\open-sans-light_Font.ttf" />
     <Resource Include="VisualResources\Fonts\Taurus-bold_Font.ttf" />
-    <Resource Include="VisualResources\Fonts\Mexcellent_Font.ttf" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
