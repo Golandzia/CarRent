@@ -11,7 +11,7 @@
       Title="RentersPage">
 
     <Grid Style="{DynamicResource GridBackgroundAllApp}">
-        <DataGrid
+        <DataGrid Style="{DynamicResource DataGridStyle}"
             IsReadOnly="True"
             AutoGenerateColumns="False"
             ItemsSource="{Binding Renters}">
