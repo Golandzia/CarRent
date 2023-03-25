@@ -8,7 +8,9 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="CarsPage">
 
-    <Grid Style="{DynamicResource GridBackgroundAllApp}">
-        
+    <Grid>
+        <Label Content="IN DEVELOPMENT"
+               HorizontalAlignment="Center" VerticalAlignment="Center" 
+               Foreground="Red" FontSize="45" />
     </Grid>
 </Page>

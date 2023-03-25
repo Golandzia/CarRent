@@ -3,12 +3,51 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:CarRent.View.Pages"
+      xmlns:local="clr-namespace:CarRent.View.Pages" 
+      xmlns:viewmodel="clr-namespace:CarRent.ViewModel" 
+      d:DataContext="{d:DesignInstance Type=viewmodel:RentersPageVM}"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="RentersPage">
 
     <Grid Style="{DynamicResource GridBackgroundAllApp}">
+        <DataGrid
+            IsReadOnly="True"
+            AutoGenerateColumns="False"
+            ItemsSource="{Binding Renters}">
+            <DataGrid.Columns>
+                <DataGridTextColumn
+                    Header="First name"
+                    Binding="{Binding First_name}"/>
+                <DataGridTextColumn
+                    Header="Second name"
+                    Binding="{Binding Second_name}"/>
+                <DataGridTextColumn
+                    Header="Third name"
+                    Binding="{Binding Patronymic}"/>
+                <DataGridTextColumn
+                    Header="Passport number"
+                    Binding="{Binding Passport_num}"/>
+                <DataGridTextColumn
+                    Header="Country"
+                    Binding="{Binding Country}"/>
+                <DataGridTextColumn
+                    Header="Driving license num"
+                    Binding="{Binding Driver_license_num}"/>
+                <DataGridTextColumn
+                    Header="Experience"
+                    Binding="{Binding Expirence_of_driving}"/>
+                <DataGridTextColumn
+                    Header="Age"
+                    Binding="{Binding Age}"/>
+                <DataGridTextColumn
+                    Header="Phone number"
+                    Binding="{Binding Phone_number}"/>
+                <DataGridTextColumn
+                    Header="Email"
+                    Binding="{Binding Email}"/>
+            </DataGrid.Columns>
+        </DataGrid>
         
     </Grid>
 </Page>

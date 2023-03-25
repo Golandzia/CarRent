@@ -65,6 +65,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ViewModel\MainWorkspaceWindowVM.cs" />
+    <Compile Include="ViewModel\RentersPageVM.cs" />
     <Compile Include="View\Pages\CarsPage.xaml.cs">
       <DependentUpon>CarsPage.xaml</DependentUpon>
     </Compile>

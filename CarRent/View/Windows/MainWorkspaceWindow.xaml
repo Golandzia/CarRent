@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CarRent.View.Windows" xmlns:viewmodel="clr-namespace:CarRent.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:MainWorkspaceWindowVM}"
         mc:Ignorable="d"
-        Title="MainWorkspaceWindow" Height="450" Width="800">
+        WindowStartupLocation="CenterOwner"
+        MinHeight="450" MinWidth="800"
+        Title="Main workspace window" Height="450" Width="800">
     <Grid Style="{DynamicResource GridBackgroundAllApp}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
