@@ -9,6 +9,7 @@
                 <ResourceDictionary Source="VisualResources\ResourceDictionarys\ViewDictionary.xaml"/>
                 <ResourceDictionary Source="VisualResources\ResourceDictionarys\ButtonsDictionary.xaml"/>
                 <ResourceDictionary Source="VisualResources\ResourceDictionarys\DataGridsDictionary.xaml"/>
+                <ResourceDictionary Source="VisualResources\ResourceDictionarys\DBManagmentButtonsDictionary.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
