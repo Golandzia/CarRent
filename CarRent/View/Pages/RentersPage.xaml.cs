@@ -28,9 +28,6 @@ namespace CarRent.View.Pages
             this.DataContext = new RentersPageVM();
         }
 
-        private void AddButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+        
     }
 }

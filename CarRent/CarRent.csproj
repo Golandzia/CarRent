@@ -64,6 +64,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModel\AddRenterWindowVM.cs" />
     <Compile Include="ViewModel\MainWorkspaceWindowVM.cs" />
     <Compile Include="ViewModel\RentersPageVM.cs" />
     <Compile Include="View\Pages\CarsPage.xaml.cs">
@@ -74,6 +75,9 @@
     </Compile>
     <Compile Include="View\Pages\RentsPage.xaml.cs">
       <DependentUpon>RentsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Windows\AddRenterWindow.xaml.cs">
+      <DependentUpon>AddRenterWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Windows\MainWorkspaceWindow.xaml.cs">
       <DependentUpon>MainWorkspaceWindow.xaml</DependentUpon>
@@ -89,6 +93,10 @@
     <Page Include="View\Pages\RentsPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Windows\AddRenterWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Windows\AuthorizationWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
