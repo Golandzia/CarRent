@@ -63,7 +63,7 @@
 
             <Button Style="{DynamicResource DBManagementButtonStyle}"
                 x:Name="AddButton"
-                Content="Add"/>
+                Content="Add" Click="AddButton_Click"/>
             <Button Style="{DynamicResource DBManagementButtonStyle}"
                 x:Name="EditButton"
                 Content="Edit"/>

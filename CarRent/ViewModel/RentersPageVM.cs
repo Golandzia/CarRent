@@ -40,7 +40,7 @@ namespace CarRent.ViewModel
 
         public void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            var appWindow = new AddRenterWindow();
+            var appWindow = new AddRenterWindow(null);
             appWindow.Show();
 
             

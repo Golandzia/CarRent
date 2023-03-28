@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CarRent.dbEntities;
+using CarRent.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,7 +21,7 @@ namespace CarRent.View.Windows
     /// </summary>
     public partial class AddRenterWindow : Window
     {
-        public AddRenterWindow()
+        public AddRenterWindow(Renter renter)
         {
             InitializeComponent();
 
@@ -31,7 +33,16 @@ namespace CarRent.View.Windows
                 }
             }//Определение родительского окна
 
+            this.Focus();
 
+            this.DataContext = new AddRenterWindowVM();
+        }
+
+        private void AddBtn_Click(object sender, RoutedEventArgs e)
+        {
+            (DataContext as AddRenterWindowVM).AddBtn_Click(sender, e);
+            Owner.Focus();
+            this.Close();
         }
     }
 }

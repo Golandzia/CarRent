@@ -4,11 +4,88 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CarRent.View.Windows"
+        xmlns:viewmodel="clr-namespace:CarRent.ViewModel"
+        d:DataContext="{d:DesignInstance Type=viewmodel:AddRenterWindowVM}"
         mc:Ignorable="d"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterOwner"
-        Title="Adding new renter" Height="500" Width="400">
+        Title="Adding new renter" Height="830" Width="450">
     <Grid Style="{DynamicResource GridBackgroundAllApp}">
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Label Style="{DynamicResource LabelHeader}" Content="Adding renter" Margin="0,20,0,0"/>
+        <StackPanel Margin="0,0,0,0" Grid.Row="1">
+            <Label Style="{DynamicResource LabelStyleAddingSomethig}"
+                   Content="First name"/>
+            <TextBox x:Name="firstNameTxtBox" Style="{DynamicResource TextBoxAuthorization}"
+                     Height="30" Width="350"
+                     Text="{Binding FirstName}"/>
+
+            <Label Style="{DynamicResource LabelStyleAddingSomethig}"
+                   Content="Second name"/>
+            <TextBox x:Name="secondNameTxtBox" Style="{DynamicResource TextBoxAuthorization}"
+                     Height="30" Width="350"
+                     Text="{Binding SecondName}"/>
+
+            <Label Style="{DynamicResource LabelStyleAddingSomethig}"
+                   Content="Patronymic"/>
+            <TextBox x:Name="patronymicTxtBox" Style="{DynamicResource TextBoxAuthorization}"
+                     Height="30" Width="350"
+                     Text="{Binding Patronymic}"/>
+
+            <Label Style="{DynamicResource LabelStyleAddingSomethig}"
+                   Content="Passport number"/>
+            <TextBox x:Name="passportNumTxtBox" Style="{DynamicResource TextBoxAuthorization}"
+                     Height="30" Width="350"
+                     Text="{Binding PassportNum}"/>
+
+            <Label Style="{DynamicResource LabelStyleAddingSomethig}"
+                   Content="Country"/>
+            <TextBox x:Name="countryTxtBox" Style="{DynamicResource TextBoxAuthorization}"
+                     Height="30" Width="350"
+                     Text="{Binding Country}"/>
+
+            <Label Style="{DynamicResource LabelStyleAddingSomethig}"
+                   Content="Driver license number"/>
+            <TextBox x:Name="driverLicenceNumTxtBox" Style="{DynamicResource TextBoxAuthorization}"
+                     Height="30" Width="350"
+                     Text="{Binding DrivingLicenseNum}"/>
+
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Vertical">
+                    <Label Style="{DynamicResource LabelStyleAddingSomethig}"
+                   Content="Expirience of driving"/>
+                    <TextBox x:Name="expOfDrivingTxtBox" Style="{DynamicResource TextBoxAuthorization}"
+                     Height="30" Width="150" HorizontalAlignment="Left" Margin="50,0,0,0"
+                             Text="{Binding ExpOfDriving}"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <Label Style="{DynamicResource LabelStyleAddingSomethig}"
+                   Content="Age" Margin="60,20,0,0"/>
+                    <TextBox x:Name="ageTxtBox" Style="{DynamicResource TextBoxAuthorization}"
+                     Height="30" Width="150" HorizontalAlignment="Left" Margin="50,0,0,0"
+                             Text="{Binding Age}"/>
+                </StackPanel>
+            </StackPanel>
+
+            <Label Style="{DynamicResource LabelStyleAddingSomethig}"
+                   Content="Phone number"/>
+            <TextBox x:Name="phoneNumTxtBox" Style="{DynamicResource TextBoxAuthorization}"
+                     Height="30" Width="350"
+                     Text="{Binding PhoneNumber}"/>
+
+            <Label Style="{DynamicResource LabelStyleAddingSomethig}"
+                   Content="Email"/>
+            <TextBox x:Name="emailTxtBox" Style="{DynamicResource TextBoxAuthorization}"
+                     Height="30" Width="350"
+                     Text="{Binding Email}"/>
+
+            <Button x:Name="AddBtn" Style="{DynamicResource DBManagementButtonStyle}"
+                    Content="Add" Margin="0,25,0,0" Height="40" Width="200" FontSize="23" Click="AddBtn_Click"
+                    />
+
+        </StackPanel>
     </Grid>
 </Window>
