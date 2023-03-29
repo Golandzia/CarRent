@@ -47,9 +47,9 @@ namespace CarRent.ViewModel
         }
 
 
-        public void AddButton_Click()
+        public void AddButton_Click(Renter renter)
         {
-            var appWindow = new AddRenterWindow();
+            var appWindow = new AddRenterWindow(renter);
             appWindow.Show();
         }
 

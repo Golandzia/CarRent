@@ -67,7 +67,7 @@
                 Content="Add" Click="AddButton_Click"/>
             <Button Style="{DynamicResource DBManagementButtonStyle}"
                 x:Name="EditButton"
-                Content="Edit"/>
+                Content="Edit" Click="EditButton_Click"/>
             <Button Style="{DynamicResource DBManagementButtonStyle}"
                 x:Name="DeleteButton"
                 Content="Delete" Click="DeleteButton_Click"

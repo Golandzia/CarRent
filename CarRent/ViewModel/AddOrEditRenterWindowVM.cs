@@ -1,6 +1,7 @@
 ﻿using CarRent.dbEntities;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -10,7 +11,7 @@ using System.Windows.Navigation;
 
 namespace CarRent.ViewModel
 {
-    public class AddRenterWindowVM : BaseVM
+    public class AddOrEditRenterWindowVM : BaseVM
     {
         private string _firstName;
         private string _secondName;
@@ -22,6 +23,7 @@ namespace CarRent.ViewModel
         private int _age;
         private string _phoneNumber;
         private string _email;
+        private string _headerDescription;
 
         public string FirstName
         {
@@ -113,8 +115,31 @@ namespace CarRent.ViewModel
                 OnPropertyChanged(nameof(Email));
             }
         }
+        public string HeaderDescription
+        {
+            get => _headerDescription;
+            set
+            {
+                _headerDescription = value;
+                OnPropertyChanged(nameof(HeaderDescription));
+            }
+        }
 
-        public Renter renter = new Renter();
+        public Renter _renter = new Renter();
+
+        public AddOrEditRenterWindowVM(Renter renter)
+        {
+            if(renter is null)
+            {
+                _renter = renter = new Renter();
+                HeaderDescription = "Adding renter";
+            }
+            else
+            {
+                _renter = renter;
+                HeaderDescription = "Editing renter";
+            }
+        }
 
         public void AddBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -127,7 +152,7 @@ namespace CarRent.ViewModel
                     MessageBox.Show(validateEntityResult.ToString(), "Information", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
-                db.Renter.Add(renter);
+                db.Renter.AddOrUpdate(_renter);
                 db.SaveChanges();
                 MessageBox.Show("Data saved succesfully", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
                 
@@ -177,16 +202,16 @@ namespace CarRent.ViewModel
                 errors.AppendLine("The field \"Email\" cannot be empty");
             }
 
-            renter.First_name = FirstName;
-            renter.Second_name = SecondName;
-            renter.Patronymic = Patronymic;
-            renter.Passport_num = PassportNum;
-            renter.Country = Country;
-            renter.Driver_license_num = DrivingLicenseNum;
-            renter.Expirence_of_driving = ExpOfDriving;
-            renter.Age = Age;
-            renter.Email = Email;
-            renter.Phone_number = PhoneNumber;
+            _renter.First_name = FirstName;
+            _renter.Second_name = SecondName;
+            _renter.Patronymic = Patronymic;
+            _renter.Passport_num = PassportNum;
+            _renter.Country = Country;
+            _renter.Driver_license_num = DrivingLicenseNum;
+            _renter.Expirence_of_driving = ExpOfDriving;
+            _renter.Age = Age;
+            _renter.Email = Email;
+            _renter.Phone_number = PhoneNumber;
 
             return errors;
         }

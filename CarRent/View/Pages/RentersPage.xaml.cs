@@ -30,12 +30,17 @@ namespace CarRent.View.Pages
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            (DataContext as RentersPageVM).AddButton_Click();
+            (DataContext as RentersPageVM).AddButton_Click(null);
         }
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
             (DataContext as RentersPageVM).DeleteButton_Click();
+        }
+
+        private void EditButton_Click(object sender, RoutedEventArgs e)
+        {
+            (DataContext as RentersPageVM).AddButton_Click((DataContext as RentersPageVM).SelectedItem);
         }
     }
 }

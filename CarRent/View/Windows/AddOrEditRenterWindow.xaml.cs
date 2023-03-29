@@ -21,7 +21,7 @@ namespace CarRent.View.Windows
     /// </summary>
     public partial class AddRenterWindow : Window
     {
-        public AddRenterWindow()
+        public AddRenterWindow(Renter renter)
         {
             InitializeComponent();
 
@@ -35,12 +35,12 @@ namespace CarRent.View.Windows
 
             this.Focus();
 
-            this.DataContext = new AddRenterWindowVM();
+            this.DataContext = new AddOrEditRenterWindowVM(renter);
         }
 
         private void AddBtn_Click(object sender, RoutedEventArgs e)
         {
-            (DataContext as AddRenterWindowVM).AddBtn_Click(sender, e);
+            (DataContext as AddOrEditRenterWindowVM).AddBtn_Click(sender, e);
             Owner.Focus();
             this.Close();
         }
