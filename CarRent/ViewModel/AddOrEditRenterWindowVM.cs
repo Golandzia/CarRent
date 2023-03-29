@@ -138,6 +138,18 @@ namespace CarRent.ViewModel
             {
                 _renter = renter;
                 HeaderDescription = "Editing renter";
+
+                FirstName = renter.First_name;
+                SecondName = renter.Second_name;
+                Patronymic = renter.Patronymic;
+                PassportNum = renter.Passport_num;
+                Country = renter.Country;
+                DrivingLicenseNum = renter.Driver_license_num;
+                ExpOfDriving = renter.Expirence_of_driving;
+                Age = renter.Age;
+                PhoneNumber = renter.Phone_number;
+                Email = renter.Email;
+
             }
         }
 
@@ -147,13 +159,14 @@ namespace CarRent.ViewModel
 
             using (var db = new CarRentDbEntities())
             {
-                if (validateEntityResult != null)
+                if (validateEntityResult.Length > 0)
                 {
                     MessageBox.Show(validateEntityResult.ToString(), "Information", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
                 db.Renter.AddOrUpdate(_renter);
                 db.SaveChanges();
+                
                 MessageBox.Show("Data saved succesfully", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
                 
             }
@@ -163,7 +176,7 @@ namespace CarRent.ViewModel
         {
             
             var errors = new StringBuilder();
-            errors = null;
+            //errors = null;
             
             if(String.IsNullOrEmpty(FirstName))
             {
