@@ -21,7 +21,7 @@ namespace CarRent.View.Windows
     /// </summary>
     public partial class AddRenterWindow : Window
     {
-        public AddRenterWindow(Renter renter)
+        public AddRenterWindow()
         {
             InitializeComponent();
 
