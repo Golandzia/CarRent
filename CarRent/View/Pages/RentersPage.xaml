@@ -18,6 +18,7 @@
         </Grid.RowDefinitions>
         <DataGrid x:Name="MainDataGrid"
             Style="{DynamicResource DataGridStyle}"
+            SelectedItem="{Binding SelectedItem}"
             IsReadOnly="True"
             AutoGenerateColumns="False"
             ItemsSource="{Binding Renters}"
@@ -69,7 +70,8 @@
                 Content="Edit"/>
             <Button Style="{DynamicResource DBManagementButtonStyle}"
                 x:Name="DeleteButton"
-                Content="Delete"/>
+                Content="Delete" Click="DeleteButton_Click"
+                />
         </StackPanel>
     </Grid>
 </Page>
