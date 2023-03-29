@@ -216,15 +216,15 @@ namespace CarRent.ViewModel
             }
 
             _renter.First_name = FirstName;
-            _renter.Second_name = SecondName;
-            _renter.Patronymic = Patronymic;
-            _renter.Passport_num = PassportNum;
-            _renter.Country = Country;
-            _renter.Driver_license_num = DrivingLicenseNum;
-            _renter.Expirence_of_driving = ExpOfDriving;
-            _renter.Age = Age;
-            _renter.Email = Email;
-            _renter.Phone_number = PhoneNumber;
+            //_renter.Second_name = SecondName;
+            //_renter.Patronymic = Patronymic;
+            //_renter.Passport_num = PassportNum;
+            //_renter.Country = Country;
+            //_renter.Driver_license_num = DrivingLicenseNum;
+            //_renter.Expirence_of_driving = ExpOfDriving;
+            //_renter.Age = Age;
+            //_renter.Email = Email;
+            //_renter.Phone_number = PhoneNumber;
 
             return errors;
         }
