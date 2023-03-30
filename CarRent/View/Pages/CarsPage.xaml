@@ -52,23 +52,23 @@
                     Header="Price per day"
                     Binding="{Binding Price_per_day}"/>
             </DataGrid.Columns>
-            <StackPanel
+        </DataGrid>
+        <StackPanel
             Grid.Row="2"
             Orientation="Horizontal"
             HorizontalAlignment="Right" VerticalAlignment="Bottom"
             Margin="0,10,20,7">
 
-                <Button Style="{DynamicResource DBManagementButtonStyle}"
+            <Button Style="{DynamicResource DBManagementButtonStyle}"
                 x:Name="AddButton"
                 Content="Add" />
-                <Button Style="{DynamicResource DBManagementButtonStyle}"
+            <Button Style="{DynamicResource DBManagementButtonStyle}"
                 x:Name="EditButton"
                 Content="Edit"/>
-                <Button Style="{DynamicResource DBManagementButtonStyle}"
+            <Button Style="{DynamicResource DBManagementButtonStyle}"
                 x:Name="DeleteButton"
                 Content="Delete"
                 />
-            </StackPanel>
-        </DataGrid>
+        </StackPanel>
     </Grid>
 </Page>
