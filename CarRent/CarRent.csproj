@@ -65,6 +65,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ViewModel\AddOrEditRenterWindowVM.cs" />
+    <Compile Include="ViewModel\CarsPageVM.cs" />
     <Compile Include="ViewModel\MainWorkspaceWindowVM.cs" />
     <Compile Include="ViewModel\RentersPageVM.cs" />
     <Compile Include="View\Pages\CarsPage.xaml.cs">

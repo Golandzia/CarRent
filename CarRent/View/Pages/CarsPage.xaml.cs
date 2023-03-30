@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CarRent.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,8 @@ namespace CarRent.View.Pages
         public CarsPage()
         {
             InitializeComponent();
+
+            this.DataContext = new CarsPageVM();
         }
     }
 }
