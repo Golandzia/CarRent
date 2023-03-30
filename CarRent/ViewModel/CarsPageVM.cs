@@ -11,6 +11,7 @@ namespace CarRent.ViewModel
     public class CarsPageVM :  BaseVM
     {
         private ObservableCollection<Car> _cars;
+        
         public ObservableCollection<Car> Cars
         {
             get => _cars;
