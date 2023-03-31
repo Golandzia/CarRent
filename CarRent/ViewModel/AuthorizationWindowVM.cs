@@ -47,7 +47,7 @@ namespace CarRent.ViewModel
         }
 
         public Agent _agent;
-        public async Task<bool> Authorize(string login, string password)
+        public async Task<Agent> Authorize(string login, string password)
         {
             try
             {
@@ -58,17 +58,17 @@ namespace CarRent.ViewModel
 
                 if (result != null)
                 {
-                    return true;
+                    return _agent;
                 }
 
-                return false;
+                return null;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Authentefication error",
                         MessageBoxButton.OK, MessageBoxImage.Stop);
 
-                return false;
+                return null;
             }
         }
 
@@ -76,8 +76,7 @@ namespace CarRent.ViewModel
         public async void AuthinApp()
         {
             ButtonDescription = "Authorization...";
-
-            if(await Authorize(Login, Password))
+            if(await Authorize(Login, Password) != null)
             {
                 var appWindow = new MainWorkspaceWindow(_agent);
                 appWindow.Show();

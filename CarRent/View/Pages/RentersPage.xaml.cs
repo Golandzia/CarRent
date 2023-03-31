@@ -1,4 +1,5 @@
-﻿using CarRent.ViewModel;
+﻿using CarRent.dbEntities;
+using CarRent.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,11 +22,11 @@ namespace CarRent.View.Pages
     /// </summary>
     public partial class RentersPage : Page
     {
-        public RentersPage()
+        public RentersPage(Agent agent)
         {
             InitializeComponent();
 
-            this.DataContext = new RentersPageVM();
+            this.DataContext = new RentersPageVM(agent);
         }
 
         private void AddButton_Click(object sender, RoutedEventArgs e)

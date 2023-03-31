@@ -69,9 +69,9 @@ namespace CarRent.ViewModel
         }
 
 
-        public void RentersNavigationBtn_Click()
+        public void RentersNavigationBtn_Click(Agent agent)
         {
-            Page = new RentersPage();
+            Page = new RentersPage(agent);
             RentersBtnColor = "#FF9AB0BB";
             CurrentRentsBtnColor = "#FF8D93A3";
             CarsBtnColor = "#FF8D93A3";

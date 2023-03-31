@@ -70,7 +70,7 @@
                 Content="Edit" Click="EditButton_Click"/>
             <Button Style="{DynamicResource DBManagementButtonStyle}"
                 x:Name="DeleteButton"
-                IsEnabled="{Binding }"
+                IsEnabled="{Binding IsDeleteFunctionAvaliable}"
                 Content="Delete" Click="DeleteButton_Click"
                 />
         </StackPanel>

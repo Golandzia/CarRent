@@ -10,6 +10,16 @@ namespace CarRent.ViewModel
     public class RentersPageVM : BaseVM
     {
         private ObservableCollection<Renter> _renters;
+        private bool _isDeleteFunctionAvaliable;
+        public bool IsDeleteFunctionAvaliable
+        {
+            get => _isDeleteFunctionAvaliable;
+            set
+            {
+                _isDeleteFunctionAvaliable = value;
+                OnPropertyChanged(nameof(IsDeleteFunctionAvaliable));
+            }
+        }
         public ObservableCollection<Renter> Renters
         {
             get => _renters;
@@ -31,9 +41,18 @@ namespace CarRent.ViewModel
             }
         }
 
-        public RentersPageVM()
+        public RentersPageVM(Agent agent)
         {
             Renters = new ObservableCollection<Renter>();//Обязательно инициализировать!
+
+            if(agent.Post == 2)
+            {
+                IsDeleteFunctionAvaliable = true;
+            }
+            else
+            {
+                IsDeleteFunctionAvaliable = false;
+            }
 
             LoadDataFromDB();
         }
