@@ -157,7 +157,7 @@ namespace CarRent.ViewModel
         {
             var validateEntityResult = ValidateEntity();
 
-            using (var db = new CarRentDbEntities())
+            using (var db = new CarRentEntities())
             {
                 if (validateEntityResult.Length > 0)
                 {

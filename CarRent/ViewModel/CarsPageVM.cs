@@ -26,7 +26,7 @@ namespace CarRent.ViewModel
         {
             Cars = new ObservableCollection<Car>();
 
-            var result = DbStorage.DB_s.Car.ToList();
+            var result = DBStorage.DB_s.Car.ToList();
             result.ForEach(car => Cars?.Add(car));
 
 

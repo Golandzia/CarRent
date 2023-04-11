@@ -64,6 +64,52 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="dbEntities\Agent.cs">
+      <DependentUpon>CarRentDbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbEntities\Car.cs">
+      <DependentUpon>CarRentDbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbEntities\CarRentDbEntities.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CarRentDbEntities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbEntities\CarRentDbEntities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CarRentDbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbEntities\CarRentDbEntities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CarRentDbEntities.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="dbEntities\Color.cs">
+      <DependentUpon>CarRentDbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbEntities\DBStorage.cs" />
+    <Compile Include="dbEntities\Make_of_car.cs">
+      <DependentUpon>CarRentDbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbEntities\Model_of_car.cs">
+      <DependentUpon>CarRentDbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbEntities\Post.cs">
+      <DependentUpon>CarRentDbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbEntities\Rent.cs">
+      <DependentUpon>CarRentDbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbEntities\Renter.cs">
+      <DependentUpon>CarRentDbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbEntities\Rent_type.cs">
+      <DependentUpon>CarRentDbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbEntities\sysdiagrams.cs">
+      <DependentUpon>CarRentDbEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\AddOrEditRenterWindowVM.cs" />
     <Compile Include="ViewModel\CarsPageVM.cs" />
     <Compile Include="ViewModel\MainWorkspaceWindowVM.cs" />
@@ -106,49 +152,6 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="dbEntities\Agent.cs">
-      <DependentUpon>CarRentDbEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="dbEntities\Car.cs">
-      <DependentUpon>CarRentDbEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="dbEntities\CarRentDbEntities.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CarRentDbEntities.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="dbEntities\CarRentDbEntities.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CarRentDbEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="dbEntities\CarRentDbEntities.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CarRentDbEntities.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="dbEntities\Color.cs">
-      <DependentUpon>CarRentDbEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="dbEntities\DBStorage.cs" />
-    <Compile Include="dbEntities\Make_of_car.cs">
-      <DependentUpon>CarRentDbEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="dbEntities\Model_of_car.cs">
-      <DependentUpon>CarRentDbEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="dbEntities\Post.cs">
-      <DependentUpon>CarRentDbEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="dbEntities\Rent.cs">
-      <DependentUpon>CarRentDbEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="dbEntities\Renter.cs">
-      <DependentUpon>CarRentDbEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="dbEntities\sysdiagrams.cs">
-      <DependentUpon>CarRentDbEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\AuthorizationWindowVM.cs" />
     <Compile Include="ViewModel\BaseVM.cs" />
@@ -219,10 +222,14 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
     <Content Include="dbEntities\CarRentDbEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>CarRentDbEntities.Context.cs</LastGenOutput>
       <DependentUpon>CarRentDbEntities.edmx</DependentUpon>
+      <LastGenOutput>CarRentDbEntities.Context.cs</LastGenOutput>
     </Content>
     <Content Include="dbEntities\CarRentDbEntities.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -230,9 +237,5 @@
       <LastGenOutput>CarRentDbEntities.cs</LastGenOutput>
     </Content>
   </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

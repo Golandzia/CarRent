@@ -51,7 +51,7 @@ namespace CarRent.ViewModel
         {
             try
             {
-                var result = await DbStorage.DB_s.Agent.FirstOrDefaultAsync(_agent => _agent.Login == login &&
+                var result = await DBStorage.DB_s.Agent.FirstOrDefaultAsync(_agent => _agent.Login == login &&
                             _agent.Password == password);
 
                 _agent = result;

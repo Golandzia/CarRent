@@ -60,7 +60,7 @@ namespace CarRent.ViewModel
         public void LoadDataFromDB()
         {
             Renters.Clear();
-            var result = DbStorage.DB_s.Renter.ToList();
+            var result = DBStorage.DB_s.Renter.ToList();
 
             result.ForEach(elem => Renters?.Add(elem));
         }
@@ -76,7 +76,7 @@ namespace CarRent.ViewModel
         {
             var messageBoxResult = MessageBox.Show("The selected object will be permanently deleted.\nContinue?", "Warning", MessageBoxButton.YesNo, MessageBoxImage.Warning);
 
-            using (var db = new CarRentDbEntities())
+            using (var db = new CarRentEntities())
             {
                 if (messageBoxResult == MessageBoxResult.Yes)
                 {
