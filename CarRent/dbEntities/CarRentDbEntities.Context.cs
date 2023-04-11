@@ -13,10 +13,10 @@ namespace CarRent.dbEntities
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class CarRentDbEntities : DbContext
+    public partial class CarRentEntities : DbContext
     {
-        public CarRentDbEntities()
-            : base("name=CarRentDbEntities")
+        public CarRentEntities()
+            : base("name=CarRentEntities")
         {
         }
     
@@ -32,6 +32,7 @@ namespace CarRent.dbEntities
         public virtual DbSet<Model_of_car> Model_of_car { get; set; }
         public virtual DbSet<Post> Post { get; set; }
         public virtual DbSet<Rent> Rent { get; set; }
+        public virtual DbSet<Rent_type> Rent_type { get; set; }
         public virtual DbSet<Renter> Renter { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
     }

@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace CarRent.dbEntities
 {
-    public static class DbStorage
+    public static class DBStorage
     {
-        public static CarRentDbEntities DB_s { get; set; } = new CarRentDbEntities();
+        public static CarRentEntities DB_s { get; set; } = new CarRentEntities();
     }
 }

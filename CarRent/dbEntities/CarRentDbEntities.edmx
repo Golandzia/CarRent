@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище CarRentDbModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище CarRentModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Agent">
           <Key>
             <PropertyRef Name="ID" />
@@ -73,8 +73,15 @@
           <Property Name="End" Type="datetime" Nullable="false" />
           <Property Name="Car" Type="int" Nullable="false" />
           <Property Name="Renter" Type="int" Nullable="false" />
-          <Property Name="Rent_type" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Rent_type" Type="int" Nullable="false" />
           <Property Name="Agent" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Rent_type">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Value" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Renter">
           <Key>
@@ -186,6 +193,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Rent_Rent_type">
+          <End Role="Rent_type" Type="Self.Rent_type" Multiplicity="1" />
+          <End Role="Rent" Type="Self.Rent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rent_type">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Rent">
+              <PropertyRef Name="Rent_type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Rent_Renter">
           <End Role="Renter" Type="Self.Renter" Multiplicity="1" />
           <End Role="Rent" Type="Self.Rent" Multiplicity="*" />
@@ -198,7 +217,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Хранилище CarRentDbModelContainer">
+        <EntityContainer Name="Хранилище CarRentModelContainer">
           <EntitySet Name="Agent" EntityType="Self.Agent" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Car" EntityType="Self.Car" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Color" EntityType="Self.Color" Schema="dbo" store:Type="Tables" />
@@ -206,6 +225,7 @@
           <EntitySet Name="Model_of_car" EntityType="Self.Model_of_car" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Post" EntityType="Self.Post" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Rent" EntityType="Self.Rent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rent_type" EntityType="Self.Rent_type" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Renter" EntityType="Self.Renter" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Agent_Post" Association="Self.FK_Agent_Post">
@@ -236,6 +256,10 @@
             <End Role="Car" EntitySet="Car" />
             <End Role="Rent" EntitySet="Rent" />
           </AssociationSet>
+          <AssociationSet Name="FK_Rent_Rent_type" Association="Self.FK_Rent_Rent_type">
+            <End Role="Rent_type" EntitySet="Rent_type" />
+            <End Role="Rent" EntitySet="Rent" />
+          </AssociationSet>
           <AssociationSet Name="FK_Rent_Renter" Association="Self.FK_Rent_Renter">
             <End Role="Renter" EntitySet="Renter" />
             <End Role="Rent" EntitySet="Rent" />
@@ -245,7 +269,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="CarRentDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="CarRentModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Agent">
           <Key>
             <PropertyRef Name="ID" />
@@ -326,11 +350,20 @@
           <Property Name="End" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Car" Type="Int32" Nullable="false" />
           <Property Name="Renter" Type="Int32" Nullable="false" />
-          <Property Name="Rent_type" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Rent_type" Type="Int32" Nullable="false" />
           <Property Name="Agent" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Agent1" Relationship="Self.FK_Rent_Agent" FromRole="Rent" ToRole="Agent" />
           <NavigationProperty Name="Car1" Relationship="Self.FK_Rent_Car" FromRole="Rent" ToRole="Car" />
+          <NavigationProperty Name="Rent_type1" Relationship="Self.FK_Rent_Rent_type" FromRole="Rent" ToRole="Rent_type" />
           <NavigationProperty Name="Renter1" Relationship="Self.FK_Rent_Renter" FromRole="Rent" ToRole="Renter" />
+        </EntityType>
+        <EntityType Name="Rent_type">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Value" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Rent" Relationship="Self.FK_Rent_Rent_type" FromRole="Rent_type" ToRole="Rent" />
         </EntityType>
         <EntityType Name="Renter">
           <Key>
@@ -443,6 +476,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Rent_Rent_type">
+          <End Role="Rent_type" Type="Self.Rent_type" Multiplicity="1" />
+          <End Role="Rent" Type="Self.Rent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rent_type">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Rent">
+              <PropertyRef Name="Rent_type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Rent_Renter">
           <End Role="Renter" Type="Self.Renter" Multiplicity="1" />
           <End Role="Rent" Type="Self.Rent" Multiplicity="*" />
@@ -455,7 +500,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="CarRentDbEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="CarRentEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Agent" EntityType="Self.Agent" />
           <EntitySet Name="Car" EntityType="Self.Car" />
           <EntitySet Name="Color" EntityType="Self.Color" />
@@ -463,6 +508,7 @@
           <EntitySet Name="Model_of_car" EntityType="Self.Model_of_car" />
           <EntitySet Name="Post" EntityType="Self.Post" />
           <EntitySet Name="Rent" EntityType="Self.Rent" />
+          <EntitySet Name="Rent_type" EntityType="Self.Rent_type" />
           <EntitySet Name="Renter" EntityType="Self.Renter" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <AssociationSet Name="FK_Agent_Post" Association="Self.FK_Agent_Post">
@@ -493,6 +539,10 @@
             <End Role="Make_of_car" EntitySet="Make_of_car" />
             <End Role="Model_of_car" EntitySet="Model_of_car" />
           </AssociationSet>
+          <AssociationSet Name="FK_Rent_Rent_type" Association="Self.FK_Rent_Rent_type">
+            <End Role="Rent_type" EntitySet="Rent_type" />
+            <End Role="Rent" EntitySet="Rent" />
+          </AssociationSet>
           <AssociationSet Name="FK_Rent_Renter" Association="Self.FK_Rent_Renter">
             <End Role="Renter" EntitySet="Renter" />
             <End Role="Rent" EntitySet="Rent" />
@@ -503,9 +553,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище CarRentDbModelContainer" CdmEntityContainer="CarRentDbEntities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище CarRentModelContainer" CdmEntityContainer="CarRentEntities">
           <EntitySetMapping Name="Agent">
-            <EntityTypeMapping TypeName="CarRentDbModel.Agent">
+            <EntityTypeMapping TypeName="CarRentModel.Agent">
               <MappingFragment StoreEntitySet="Agent">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Login" ColumnName="Login" />
@@ -520,7 +570,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Car">
-            <EntityTypeMapping TypeName="CarRentDbModel.Car">
+            <EntityTypeMapping TypeName="CarRentModel.Car">
               <MappingFragment StoreEntitySet="Car">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="State_registration_plate" ColumnName="State_registration_plate" />
@@ -537,7 +587,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Color">
-            <EntityTypeMapping TypeName="CarRentDbModel.Color">
+            <EntityTypeMapping TypeName="CarRentModel.Color">
               <MappingFragment StoreEntitySet="Color">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Value" ColumnName="Value" />
@@ -545,7 +595,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Make_of_car">
-            <EntityTypeMapping TypeName="CarRentDbModel.Make_of_car">
+            <EntityTypeMapping TypeName="CarRentModel.Make_of_car">
               <MappingFragment StoreEntitySet="Make_of_car">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Make" ColumnName="Make" />
@@ -553,7 +603,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Model_of_car">
-            <EntityTypeMapping TypeName="CarRentDbModel.Model_of_car">
+            <EntityTypeMapping TypeName="CarRentModel.Model_of_car">
               <MappingFragment StoreEntitySet="Model_of_car">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Make" ColumnName="Make" />
@@ -562,7 +612,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Post">
-            <EntityTypeMapping TypeName="CarRentDbModel.Post">
+            <EntityTypeMapping TypeName="CarRentModel.Post">
               <MappingFragment StoreEntitySet="Post">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Value" ColumnName="Value" />
@@ -570,7 +620,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Rent">
-            <EntityTypeMapping TypeName="CarRentDbModel.Rent">
+            <EntityTypeMapping TypeName="CarRentModel.Rent">
               <MappingFragment StoreEntitySet="Rent">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Start" ColumnName="Start" />
@@ -582,8 +632,16 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Rent_type">
+            <EntityTypeMapping TypeName="CarRentModel.Rent_type">
+              <MappingFragment StoreEntitySet="Rent_type">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Renter">
-            <EntityTypeMapping TypeName="CarRentDbModel.Renter">
+            <EntityTypeMapping TypeName="CarRentModel.Renter">
               <MappingFragment StoreEntitySet="Renter">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="First_name" ColumnName="First_name" />
@@ -600,7 +658,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="CarRentDbModel.sysdiagrams">
+            <EntityTypeMapping TypeName="CarRentModel.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />

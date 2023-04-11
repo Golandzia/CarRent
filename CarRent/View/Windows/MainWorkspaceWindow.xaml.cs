@@ -21,6 +21,7 @@ namespace CarRent.View.Windows
     /// </summary>
     public partial class MainWorkspaceWindow : Window
     {
+        public Agent _agent = new Agent();
         public MainWorkspaceWindow(Agent agent)
         {
             InitializeComponent();
@@ -31,13 +32,13 @@ namespace CarRent.View.Windows
                     Owner = (item as Window);
                 }
             }// Определение родительского окна
-
+            _agent = agent;
             this.DataContext = new MainWorkspaceWindowVM(agent);
         }
 
         private void RentersNavigationBtn_Click(object sender, RoutedEventArgs e)
         {
-            (DataContext as MainWorkspaceWindowVM).RentersNavigationBtn_Click();
+            (DataContext as MainWorkspaceWindowVM).RentersNavigationBtn_Click(_agent);
         }
 
         private void CurrentRentsNavigationBtn_Click(object sender, RoutedEventArgs e)

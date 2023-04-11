@@ -64,40 +64,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ViewModel\MainWorkspaceWindowVM.cs" />
-    <Compile Include="ViewModel\RentersPageVM.cs" />
-    <Compile Include="View\Pages\CarsPage.xaml.cs">
-      <DependentUpon>CarsPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\Pages\RentersPage.xaml.cs">
-      <DependentUpon>RentersPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\Pages\RentsPage.xaml.cs">
-      <DependentUpon>RentsPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\Windows\MainWorkspaceWindow.xaml.cs">
-      <DependentUpon>MainWorkspaceWindow.xaml</DependentUpon>
-    </Compile>
-    <Page Include="View\Pages\CarsPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="View\Pages\RentersPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="View\Pages\RentsPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="View\Windows\AuthorizationWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Compile Include="App.xaml.cs">
-      <DependentUpon>App.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="dbEntities\Agent.cs">
       <DependentUpon>CarRentDbEntities.tt</DependentUpon>
     </Compile>
@@ -138,8 +104,54 @@
     <Compile Include="dbEntities\Renter.cs">
       <DependentUpon>CarRentDbEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="dbEntities\Rent_type.cs">
+      <DependentUpon>CarRentDbEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="dbEntities\sysdiagrams.cs">
       <DependentUpon>CarRentDbEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\AddOrEditRenterWindowVM.cs" />
+    <Compile Include="ViewModel\CarsPageVM.cs" />
+    <Compile Include="ViewModel\MainWorkspaceWindowVM.cs" />
+    <Compile Include="ViewModel\RentersPageVM.cs" />
+    <Compile Include="View\Pages\CarsPage.xaml.cs">
+      <DependentUpon>CarsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\RentersPage.xaml.cs">
+      <DependentUpon>RentersPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\RentsPage.xaml.cs">
+      <DependentUpon>RentsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Windows\AddOrEditRenterWindow.xaml.cs">
+      <DependentUpon>AddOrEditRenterWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Windows\MainWorkspaceWindow.xaml.cs">
+      <DependentUpon>MainWorkspaceWindow.xaml</DependentUpon>
+    </Compile>
+    <Page Include="View\Pages\CarsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Pages\RentersPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Pages\RentsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Windows\AddOrEditRenterWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Windows\AuthorizationWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
     <Compile Include="ViewModel\AuthorizationWindowVM.cs" />
     <Compile Include="ViewModel\BaseVM.cs" />
@@ -152,6 +164,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="VisualResources\ResourceDictionarys\ButtonsDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VisualResources\ResourceDictionarys\DataGridsDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VisualResources\ResourceDictionarys\DBManagmentButtonsDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VisualResources\ResourceDictionarys\LabelDictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -198,10 +222,14 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
     <Content Include="dbEntities\CarRentDbEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>CarRentDbEntities.Context.cs</LastGenOutput>
       <DependentUpon>CarRentDbEntities.edmx</DependentUpon>
+      <LastGenOutput>CarRentDbEntities.Context.cs</LastGenOutput>
     </Content>
     <Content Include="dbEntities\CarRentDbEntities.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -209,9 +237,5 @@
       <LastGenOutput>CarRentDbEntities.cs</LastGenOutput>
     </Content>
   </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
