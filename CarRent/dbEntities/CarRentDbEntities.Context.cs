@@ -27,6 +27,7 @@ namespace CarRent.dbEntities
     
         public virtual DbSet<Agent> Agent { get; set; }
         public virtual DbSet<Car> Car { get; set; }
+        public virtual DbSet<Car_status> Car_status { get; set; }
         public virtual DbSet<Color> Color { get; set; }
         public virtual DbSet<Make_of_car> Make_of_car { get; set; }
         public virtual DbSet<Model_of_car> Model_of_car { get; set; }

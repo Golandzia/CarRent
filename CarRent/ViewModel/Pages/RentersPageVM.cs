@@ -11,6 +11,7 @@ namespace CarRent.ViewModel
     {
         private ObservableCollection<Renter> _renters;
         private bool _isDeleteFunctionAvaliable;
+        private Renter _selectedItem;
         public bool IsDeleteFunctionAvaliable
         {
             get => _isDeleteFunctionAvaliable;
@@ -30,7 +31,7 @@ namespace CarRent.ViewModel
             }
         }
 
-        private Renter _selectedItem;
+        
         public Renter SelectedItem
         {
             get => _selectedItem;

@@ -9,8 +9,6 @@
       Title="RentsPage">
 
     <Grid>
-        <Label Content="IN DEVELOPMENT"
-               HorizontalAlignment="Center" VerticalAlignment="Center" 
-               Foreground="Red" FontSize="45" />
+        
     </Grid>
 </Page>

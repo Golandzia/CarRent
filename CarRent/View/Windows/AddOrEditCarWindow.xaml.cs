@@ -12,21 +12,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace CarRent.View.Pages
+namespace CarRent.View.Windows
 {
     /// <summary>
-    /// Логика взаимодействия для RentsPage.xaml
+    /// Логика взаимодействия для AddOrEditCarWindow.xaml
     /// </summary>
-    public partial class RentsPage : Page
+    public partial class AddOrEditCarWindow : Window
     {
-        public RentsPage(Agent agent)
+        public AddOrEditCarWindow(Car car)
         {
             InitializeComponent();
-
-            this.DataContext = new RentsPageVM(agent);
+            this.DataContext = new AddOrEditCarWindowVM(car);
         }
     }
 }

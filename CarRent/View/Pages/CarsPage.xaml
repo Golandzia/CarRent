@@ -61,12 +61,13 @@
 
             <Button Style="{DynamicResource DBManagementButtonStyle}"
                 x:Name="AddButton"
-                Content="Add" />
+                Content="Add" Click="AddButton_Click" />
             <Button Style="{DynamicResource DBManagementButtonStyle}"
                 x:Name="EditButton"
                 Content="Edit"/>
             <Button Style="{DynamicResource DBManagementButtonStyle}"
                 x:Name="DeleteButton"
+                IsEnabled="{Binding IsDeleteFunctionAvaliable}"
                 Content="Delete"
                 />
         </StackPanel>

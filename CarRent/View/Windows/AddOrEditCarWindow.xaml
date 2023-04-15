@@ -1,0 +1,161 @@
+﻿<Window x:Class="CarRent.View.Windows.AddOrEditCarWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CarRent.View.Windows"
+        xmlns:viewmodel="clr-namespace:CarRent.ViewModel"
+        d:DataContext="{d:DesignInstance Type=viewmodel:AddOrEditCarWindowVM}"
+        mc:Ignorable="d"
+        ResizeMode="NoResize"
+        Title="{Binding HeaderDescription}" Height="780" Width="450">
+    <Grid Style="{DynamicResource GridBackgroundAllApp}">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Label Style="{DynamicResource LabelHeader}" 
+               Content="{Binding HeaderDescription}" Margin="0,20,0,0"/>
+
+        <StackPanel Grid.Row="1">
+            <Label Style="{DynamicResource LabelStyleAddingSomethig}"
+                   Content="State registration plate"/>
+            <TextBox x:Name="stateRegPlateTxtBox" Style="{DynamicResource TextBoxAuthorization}"
+                     Height="30" Width="350"
+                     Text="{Binding StateRegistrationPlate}"/>
+
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Vertical">
+                    <Label 
+                        Style="{DynamicResource LabelStyleAddingSomethig}"
+                        Content="Mark"/>
+                    <StackPanel Orientation="Horizontal">
+                        <ComboBox 
+                            x:Name="makeComboBox"
+                            Margin="50,0,0,0" Height="30" Width="130" 
+                            FontFamily="Open Sans Light" FontSize="14"
+                            ItemsSource="{Binding AllMakes}"
+                            SelectedItem="{Binding SelectedCarMake}"
+                            DisplayMemberPath="Make"
+                        />
+                        <Button x:Name="addMarkBtn"
+                            Style="{DynamicResource DBManagementButtonStyle}"
+                            Width="30" Margin="6,0,0,0"
+                            Content="+"
+                            FontSize="17"
+                            VerticalAlignment="Center"/>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <Label 
+                        Style="{DynamicResource LabelStyleAddingSomethig}"
+                        Content="Model"
+                        Margin="20,15,0,0"/>
+                    <StackPanel Orientation="Horizontal">
+                        <ComboBox 
+                        x:Name="ModelComboBox"
+                        Margin="20,0,0,0" Height="30" Width="130" 
+                        FontFamily="Open Sans Light" FontSize="14"
+                        ItemsSource="{Binding ModelsOfSelectedMake}"
+                        SelectedItem="{Binding SelectedCarModel}"
+                        DisplayMemberPath="Model"
+                        />
+                        <Button x:Name="AddModelBtn"
+                            Style="{DynamicResource DBManagementButtonStyle}"
+                            Width="30" Margin="6,0,0,0"
+                            Content="+"
+                            FontSize="17"
+                            VerticalAlignment="Center"/>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Vertical">
+                    <Label 
+                        Style="{DynamicResource LabelStyleAddingSomethig}"
+                        Content="Color"/>
+                    <StackPanel Orientation="Horizontal">
+                        <ComboBox 
+                        x:Name="ColorComboBox"
+                        Margin="50,0,0,0" Height="30" Width="130" 
+                        FontFamily="Open Sans Light" FontSize="14"
+                        ItemsSource="{Binding Colors}"
+                        DisplayMemberPath="Value"
+                        />
+                        <Button x:Name="AddColorBtn"
+                            Style="{DynamicResource DBManagementButtonStyle}"
+                            Width="30" Margin="6,0,0,0"
+                            Content="+"
+                            FontSize="17"
+                            VerticalAlignment="Center"/>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Margin="10,0,0,0">
+                    <Label 
+                        Style="{DynamicResource LabelStyleAddingSomethig}"
+                        Content="Power"
+                        Margin="10,15,0,0"/>
+                    <TextBox x:Name="PowerTxtBox" Style="{DynamicResource TextBoxAuthorization}"
+                        Height="30" Width="160" Margin="10,0,0,0"
+                        Text="{Binding PowerOfCar}"/>
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Vertical">
+                    <Label 
+                        Style="{DynamicResource LabelStyleAddingSomethig}"
+                        Content="Last maintance"/>
+                    <TextBox x:Name="LastMaintanceTxtBox" Style="{DynamicResource TextBoxAuthorization}"
+                        Height="30" Width="160" Margin="47,0,0,0"
+                        Text="{Binding LastMaintance}"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <Label 
+                        Style="{DynamicResource LabelStyleAddingSomethig}"
+                        Content="Milage (kilometers)"
+                        Margin="30,15,0,0"/>
+                    <TextBox x:Name="MilageTxtBox" Style="{DynamicResource TextBoxAuthorization}"
+                        Height="30" Width="160" Margin="30,0,0,0"
+                        Text="{Binding Milage}"/>
+                </StackPanel>
+            </StackPanel>
+
+            <Label Style="{DynamicResource LabelStyleAddingSomethig}"
+                   Content="Luxary coefficient"/>
+            <TextBox x:Name="luxaruCoefficientTxtBox" Style="{DynamicResource TextBoxAuthorization}"
+                     Height="30" Width="350"
+                     Text="{Binding LuxaryCoeficient}"/>
+
+            <Label Style="{DynamicResource LabelStyleAddingSomethig}"
+                   Content="Price per hour"/>
+            <TextBox x:Name="pricePerHourTxtBox" Style="{DynamicResource TextBoxAuthorization}"
+                     Height="30" Width="350"
+                     Text="{Binding PricePerHour}"/>
+
+            <Label Style="{DynamicResource LabelStyleAddingSomethig}"
+                   Content="Price per day"/>
+            <TextBox x:Name="pricePerDayTxtBox" Style="{DynamicResource TextBoxAuthorization}"
+                     Height="30" Width="350"
+                     Text="{Binding PricePerDay}"/>
+
+            <Label Style="{DynamicResource LabelStyleAddingSomethig}"
+                   Content="Status"/>
+            <ComboBox x:Name="StatusComboBox"
+                    Margin="00,0,0,0" Height="30" Width="350" 
+                    FontFamily="Open Sans Light" FontSize="14"
+                    ItemsSource="{Binding AllStatuses}"
+                    SelectedItem="{Binding SelectedCarStatus}"
+                    DisplayMemberPath="Value"/>
+
+            <Button x:Name="AddBtn" Style="{DynamicResource DBManagementButtonStyle}"
+                    Content="Save" Margin="0,30,0,0"
+                    Height="40" Width="200" FontSize="23"
+                    />
+
+        </StackPanel>
+    </Grid>
+</Window>

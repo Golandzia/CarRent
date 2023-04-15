@@ -43,12 +43,12 @@ namespace CarRent.View.Windows
 
         private void CurrentRentsNavigationBtn_Click(object sender, RoutedEventArgs e)
         {
-            (DataContext as MainWorkspaceWindowVM).CurrentRentsNavigationBtn_Click();
+            (DataContext as MainWorkspaceWindowVM).CurrentRentsNavigationBtn_Click(_agent);
         }
 
         private void CarsNavigationBtn_Click(object sender, RoutedEventArgs e)
         {
-            (DataContext as MainWorkspaceWindowVM).CarsNavigationBtn_Click();
+            (DataContext as MainWorkspaceWindowVM).CarsNavigationBtn_Click(_agent);
         }
     }
 }

@@ -77,17 +77,17 @@ namespace CarRent.ViewModel
             CarsBtnColor = "#FF8D93A3";
         }
 
-        public void CurrentRentsNavigationBtn_Click()
+        public void CurrentRentsNavigationBtn_Click(Agent agent)
         {
-            Page = new RentsPage();
+            Page = new RentsPage(agent);
             CurrentRentsBtnColor = "#FF9AB0BB";
             CarsBtnColor = "#FF8D93A3";
             RentersBtnColor = "#FF8D93A3";
         }
 
-        public void CarsNavigationBtn_Click()
+        public void CarsNavigationBtn_Click(Agent agent)
         {
-            Page = new CarsPage();
+            Page = new CarsPage(agent);
             CarsBtnColor = "#FF9AB0BB";
             RentersBtnColor = "#FF8D93A3";
             CurrentRentsBtnColor = "#FF8D93A3";

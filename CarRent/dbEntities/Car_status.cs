@@ -12,32 +12,18 @@ namespace CarRent.dbEntities
     using System;
     using System.Collections.Generic;
     
-    public partial class Car
+    public partial class Car_status
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Car()
+        public Car_status()
         {
-            this.Rent = new HashSet<Rent>();
+            this.Car = new HashSet<Car>();
         }
     
         public int ID { get; set; }
-        public string State_registration_plate { get; set; }
-        public int Make { get; set; }
-        public int Model { get; set; }
-        public int Power { get; set; }
-        public System.DateTime Last_maintance { get; set; }
-        public int Mileage { get; set; }
-        public int Color { get; set; }
-        public decimal Luxury_coefficient { get; set; }
-        public decimal Price_per_hour { get; set; }
-        public decimal Price_per_day { get; set; }
-        public Nullable<int> Status { get; set; }
+        public string Value { get; set; }
     
-        public virtual Car_status Car_status { get; set; }
-        public virtual Color Color1 { get; set; }
-        public virtual Make_of_car Make_of_car { get; set; }
-        public virtual Model_of_car Model_of_car { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Rent> Rent { get; set; }
+        public virtual ICollection<Car> Car { get; set; }
     }
 }

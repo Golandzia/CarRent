@@ -41,7 +41,11 @@ namespace CarRent.View.Pages
 
         private void EditButton_Click(object sender, RoutedEventArgs e)
         {
-            (DataContext as RentersPageVM).AddButton_Click((DataContext as RentersPageVM).SelectedItem);
+            if(MainDataGrid.SelectedItem != null)
+            {
+                (DataContext as RentersPageVM).AddButton_Click((DataContext as RentersPageVM).SelectedItem);
+            }
+            else MessageBox.Show("Select item to edit in first", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
         }
     }
 }
