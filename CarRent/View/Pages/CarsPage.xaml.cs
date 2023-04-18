@@ -31,7 +31,22 @@ namespace CarRent.View.Pages
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            (DataContext as CarsPageVM).AddingCar(null);
+            (DataContext as CarsPageVM).AddingOrEditingCar(null);
+        }
+
+        private void EditButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (MainDataGrid.SelectedItem != null)
+            {
+                (DataContext as CarsPageVM).AddingOrEditingCar((DataContext as CarsPageVM).SelectedItem);
+            }
+            else MessageBox.Show("Please sellect car for editing first", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+            
+        }
+
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            (DataContext as CarsPageVM).DeleteCar();
         }
     }
 }

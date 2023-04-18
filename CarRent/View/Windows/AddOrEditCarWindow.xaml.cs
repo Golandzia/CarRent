@@ -24,7 +24,34 @@ namespace CarRent.View.Windows
         public AddOrEditCarWindow(Car car)
         {
             InitializeComponent();
+
+            foreach(var item in App.Current.Windows)
+            {
+                if (item is MainWorkspaceWindow) Owner = item as Window;
+            }
+
             this.DataContext = new AddOrEditCarWindowVM(car);
+        }
+
+        private void addMarkBtn_Click(object sender, RoutedEventArgs e)
+        {
+            (DataContext as AddOrEditCarWindowVM).AddMake();
+
+        }
+
+        private void AddBtn_Click(object sender, RoutedEventArgs e)
+        {
+            (DataContext as AddOrEditCarWindowVM).AddOrEditCar();
+        }
+
+        private void AddModelBtn_Click(object sender, RoutedEventArgs e)
+        {
+            (DataContext as AddOrEditCarWindowVM).AddModel();
+        }
+
+        private void AddColorBtn_Click(object sender, RoutedEventArgs e)
+        {
+            (DataContext as AddOrEditCarWindowVM).AddColor();
         }
     }
 }

@@ -172,7 +172,7 @@ namespace CarRent.ViewModel
             }
         }
 
-        public StringBuilder ValidateEntity()
+        private StringBuilder ValidateEntity()
         {
             
             var errors = new StringBuilder();

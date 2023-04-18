@@ -1,6 +1,8 @@
 ﻿using CarRent.dbEntities;
+using CarRent.View.Windows;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
 using System.Linq;
@@ -21,6 +23,7 @@ namespace CarRent.ViewModel
         private Model_of_car _selectedCarModel;
         private Color _selectedCarColor;
         private Car_status _selectedCarStatus;
+        private int _selectedCarMakeForComboBox;
         
 
         private string _stateRegistrationPlate;
@@ -31,8 +34,8 @@ namespace CarRent.ViewModel
         private int _mileage;
         private List<Color> _colors;
         private decimal _luxuryCoefficient;
-        private SqlMoney _pricePerHour;
-        private SqlMoney _pricePerDay;
+        private decimal _pricePerHour;
+        private decimal _pricePerDay;
         private int _carStatus;
 
         public string HeaderDescription
@@ -109,6 +112,15 @@ namespace CarRent.ViewModel
                 OnPropertyChanged(nameof(SelectedCarStatus));
             }
         }
+        public int SelectedCarMakeForComboBox
+        {
+            get => _selectedCarMakeForComboBox;
+            set
+            {
+                _selectedCarMakeForComboBox = value;
+                OnPropertyChanged(nameof(SelectedCarMakeForComboBox));
+            }
+        }
 
         public string StateRegistrationPlate
         {
@@ -182,7 +194,7 @@ namespace CarRent.ViewModel
                 OnPropertyChanged(nameof(LuxaryCoeficient));
             }
         }
-        public SqlMoney PricePerHour
+        public decimal PricePerHour
         {
             get => _pricePerHour;
             set
@@ -191,7 +203,7 @@ namespace CarRent.ViewModel
                 OnPropertyChanged(nameof(PricePerHour));
             }
         }
-        public SqlMoney PricePerDay
+        public decimal PricePerDay
         {
             get => _pricePerDay;
             set
@@ -214,22 +226,105 @@ namespace CarRent.ViewModel
 
         public AddOrEditCarWindowVM(Car car)
         {
-
+            FillingComboBoxes();
             if (car is null)
             {
-                FillingComboBoxes();
                 _car = car = new Car();
                 HeaderDescription = "Adding car";
             }
             else
             {
-                //_car = car;
-                //HeaderDescription = "Editing car";
+                _car = car;
+                HeaderDescription = "Editing car";
 
-                //StateRegistrationPlate = car.State_registration_plate;
-                //MakeOfCar = car.Make;
+                StateRegistrationPlate = car.State_registration_plate;
+
+                Make_of_car _make = new Make_of_car();
+                _make.Make = car.Make_of_car.Make;
+                _make.ID = car.Color;
+                SelectedCarMake = _make;
+
+                Model_of_car _model = new Model_of_car();
+                _model.Model = car.Model_of_car.Model;
+                _model.ID = car.Model;
+                _model.Make = car.Make;
+                SelectedCarModel = _model;
+
+                Color _color = new Color();
+                _color.Value = car.Color1.Value;
+                _color.ID = car.Color;
+                SelectedCarColor = _color;
+
+                PowerOfCar = car.Power;
+                LastMaintance = car.Last_maintance;
+                Milage = car.Mileage;
+                LuxaryCoeficient = car.Luxury_coefficient;
+                PricePerHour = car.Price_per_hour;
+                PricePerDay = car.Price_per_day;
+
+                Car_status _status = new Car_status();
+                _status.Value = car.Car_status.Value;
+                SelectedCarStatus = _status;
 
             }
+        }
+
+        public void AddOrEditCar()
+        {
+            var validateEntityResult = ValidateEntity();
+
+            using (var db = new CarRentEntities())
+            {
+                try
+                {
+                    if (validateEntityResult.Length > 0)
+                    {
+                        MessageBox.Show(validateEntityResult.ToString(), "Information", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                    }
+
+                    _car.State_registration_plate = StateRegistrationPlate;
+                    _car.Make = SelectedCarMake.ID;
+                    _car.Model = SelectedCarModel.ID;
+                    _car.Color = SelectedCarColor.ID;
+                    _car.Power = PowerOfCar;
+                    _car.Last_maintance = LastMaintance;
+                    _car.Mileage = Milage;
+                    _car.Luxury_coefficient = LuxaryCoeficient;
+                    _car.Price_per_day = PricePerDay;
+                    _car.Price_per_hour = PricePerHour;
+                    _car.Status = SelectedCarStatus.ID;
+
+                    db.Car.AddOrUpdate(_car);
+                    db.SaveChanges();
+                    MessageBox.Show("Data saved succesfully", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error of saving data\n" + ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
+
+        private StringBuilder ValidateEntity()
+        {
+            var errors = new StringBuilder();
+
+            if (String.IsNullOrEmpty(StateRegistrationPlate)) errors.AppendLine("\"State registration plate\" field cannot be empty");
+            if (SelectedCarMake is null) errors.AppendLine("\"Mark\" field cannot be empty");
+            if (SelectedCarModel is null) errors.AppendLine("\"Model\" field cannot be empty");
+            if (SelectedCarColor is null) errors.AppendLine("\"Color\" field cannot be empty");
+            if (PowerOfCar <= 0) errors.AppendLine("\"Car power\" field cannot be empty");
+            if (LastMaintance == null) errors.AppendLine("\"Last maintance\" field cannot be empty");
+            if (Milage <= 0) errors.AppendLine("\"Milage\" field cannot be empty");
+            if (LuxaryCoeficient <= 0) errors.AppendLine("\"Luxary coefficient\" field cannot be empty");
+            if (PricePerDay <= 0) errors.AppendLine("\"Price per day\" field cannot be empty");
+            if (PricePerHour <= 0) errors.AppendLine("\"Price per hour\" field cannot be empty");
+            if (SelectedCarStatus is null) errors.AppendLine("\"Status\" field cannot be empty");
+
+            
+
+            return errors;
         }
 
         private void FillingComboBoxes()
@@ -250,6 +345,25 @@ namespace CarRent.ViewModel
                 MessageBox.Show("Error\n" + ex, "Non-existent Make selected", MessageBoxButton.OK, MessageBoxImage.Stop);
             }
             
+        }
+
+        public void AddMake()
+        {
+            var appWindow = new AddingMakeWindow();
+            appWindow.Show();
+            appWindow.Focus();
+        }
+        public void AddModel()
+        {
+            var appWindow = new AddingModelWindow();
+            appWindow.Show();
+            appWindow.Focus();
+        }
+        public void AddColor()
+        {
+            var appWindow = new AddingCarColorWindow();
+            appWindow.Show();
+            appWindow.Focus();
         }
 
     }

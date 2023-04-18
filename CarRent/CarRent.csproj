@@ -114,6 +114,9 @@
     <Compile Include="dbEntities\sysdiagrams.cs">
       <DependentUpon>CarRentDBEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\Windows\AddingCarColorWindowVM.cs" />
+    <Compile Include="ViewModel\Windows\AddingMakeWindowVM.cs" />
+    <Compile Include="ViewModel\Windows\AddingModelWindowVM.cs" />
     <Compile Include="ViewModel\Windows\AddOrEditCarWindowVM.cs" />
     <Compile Include="ViewModel\Windows\AddOrEditRenterWindowVM.cs" />
     <Compile Include="ViewModel\Pages\CarsPageVM.cs" />
@@ -128,6 +131,15 @@
     </Compile>
     <Compile Include="View\Pages\RentsPage.xaml.cs">
       <DependentUpon>RentsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Windows\AddingCarColorWindow.xaml.cs">
+      <DependentUpon>AddingCarColorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Windows\AddingMakeWindow.xaml.cs">
+      <DependentUpon>AddingMakeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Windows\AddingModelWindow.xaml.cs">
+      <DependentUpon>AddingModelWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Windows\AddOrEditCarWindow.xaml.cs">
       <DependentUpon>AddOrEditCarWindow.xaml</DependentUpon>
@@ -149,6 +161,18 @@
     <Page Include="View\Pages\RentsPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Windows\AddingCarColorWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Windows\AddingMakeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Windows\AddingModelWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Windows\AddOrEditCarWindow.xaml">
       <SubType>Designer</SubType>
@@ -253,5 +277,6 @@
       <LastGenOutput>CarRentDBEntities.cs</LastGenOutput>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

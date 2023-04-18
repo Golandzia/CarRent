@@ -6,6 +6,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace CarRent.ViewModel
 {
@@ -57,12 +58,41 @@ namespace CarRent.ViewModel
             else IsDeleteFunctionAvaliable = false;
         }
 
-        public void AddingCar(Car car)
+        public void AddingOrEditingCar(Car car)
         {
-            var appWindow = new AddOrEditCarWindow(null);
+            var appWindow = new AddOrEditCarWindow(car);
             appWindow.Show();
 
             appWindow.Focus();
+        }
+
+        public void DeleteCar()
+        {
+            var messageBoxResult = MessageBox.Show("The selected object will be permanently deleted.\nContinue?", "Warning", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+            using (var db = new CarRentEntities())
+            {
+                if (messageBoxResult == MessageBoxResult.Yes)
+                {
+                    try
+                    {
+                        var entityForDelete = db.Car.Where(elem => elem.ID == SelectedItem.ID).FirstOrDefault();
+
+                        db.Car.Remove(entityForDelete);
+                        db.SaveChanges();
+
+                        Cars.Clear();
+                        var result = DBStorage.DB_s.Car.ToList();
+                        result.ForEach(elem => Cars?.Add(elem));
+
+                        MessageBox.Show("Selected item was deleted", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Deletion error\n" + ex.Message.ToString(), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                }
+            }
         }
 
     }
