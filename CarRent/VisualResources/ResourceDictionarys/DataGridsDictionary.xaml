@@ -25,7 +25,7 @@
         </Setter>
     </Style>
     <Style x:Key="DataGridStyle" TargetType="{x:Type DataGrid}">
-        <Setter Property="Background" Value="#406492A7"/>
+        <Setter Property="Background" Value="#00000000"/>
         <Setter Property="Foreground" Value="#FF26456A"/>
         <Setter Property="BorderBrush" Value="#FF688CAF"/>
         <Setter Property="BorderThickness" Value="1"/>

@@ -12,6 +12,7 @@
                 <ResourceDictionary Source="VisualResources\ResourceDictionarys\DBManagmentButtonsDictionary.xaml"/>
                 <ResourceDictionary Source="VisualResources\ResourceDictionarys\labelDictionary.xaml"/>
                 <ResourceDictionary Source="VisualResources\ResourceDictionarys\ComboBoxDictionary.xaml"/>
+                <ResourceDictionary Source="VisualResources\ResourceDictionarys\DescriptionLabelDictionary.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

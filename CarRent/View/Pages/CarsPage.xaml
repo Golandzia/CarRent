@@ -21,7 +21,8 @@
             Style="{DynamicResource DataGridStyle}"
             IsReadOnly="True"
             ItemsSource="{Binding Cars}"
-            SelectedItem="{Binding SelectedItem}">
+            SelectedItem="{Binding SelectedItem}"
+            Margin="3">
             <DataGrid.Columns>
                 <DataGridTextColumn 
                     Header="State registration plate"

@@ -22,7 +22,8 @@
             IsReadOnly="True"
             AutoGenerateColumns="False"
             ItemsSource="{Binding Renters}"
-            Grid.Row="0">
+            Grid.Row="0"
+            Margin="3">
             <DataGrid.Columns>
                 <DataGridTextColumn
                     Header="First name"
