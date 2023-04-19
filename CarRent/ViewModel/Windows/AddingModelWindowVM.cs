@@ -61,7 +61,7 @@ namespace CarRent.ViewModel.Windows
                     MessageBox.Show(entityValidationResult.ToString(), "Information", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
-                using(var db = new CarRentEntities())
+                using(var db = new CarRentEntities1())
                 {
                     db.Model_of_car.Add(_modelOfCarToAdd);
                     db.SaveChanges();

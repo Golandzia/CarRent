@@ -8,6 +8,6 @@ namespace CarRent.dbEntities
 {
     public static class DBStorage
     {
-        public static CarRentEntities DB_s { get; set; } = new CarRentEntities();
+        public static CarRentEntities1 DB_s { get; set; } = new CarRentEntities1();
     }
 }

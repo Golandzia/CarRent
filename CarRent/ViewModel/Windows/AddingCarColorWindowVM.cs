@@ -40,7 +40,7 @@ namespace CarRent.ViewModel.Windows
             }
             try
             {
-                using (var db = new CarRentEntities())
+                using (var db = new CarRentEntities1())
                 {
                     db.Color.Add(_colorOfCarToAdd);
                     db.SaveChanges();

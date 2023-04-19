@@ -115,6 +115,7 @@
       <DependentUpon>CarRentDBEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\Windows\AddingCarColorWindowVM.cs" />
+    <Compile Include="ViewModel\Windows\AddingEditingRentWindowVM.cs" />
     <Compile Include="ViewModel\Windows\AddingMakeWindowVM.cs" />
     <Compile Include="ViewModel\Windows\AddingModelWindowVM.cs" />
     <Compile Include="ViewModel\Windows\AddOrEditCarWindowVM.cs" />
@@ -134,6 +135,9 @@
     </Compile>
     <Compile Include="View\Windows\AddingCarColorWindow.xaml.cs">
       <DependentUpon>AddingCarColorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Windows\AddingEditingRentWindow.xaml.cs">
+      <DependentUpon>AddingEditingRentWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Windows\AddingMakeWindow.xaml.cs">
       <DependentUpon>AddingMakeWindow.xaml</DependentUpon>
@@ -163,6 +167,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="View\Windows\AddingCarColorWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Windows\AddingEditingRentWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -281,6 +289,5 @@
       <LastGenOutput>CarRentDBEntities.cs</LastGenOutput>
     </Content>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

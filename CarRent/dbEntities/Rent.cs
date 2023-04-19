@@ -21,6 +21,7 @@ namespace CarRent.dbEntities
         public int Renter { get; set; }
         public int Rent_type { get; set; }
         public int Agent { get; set; }
+        public Nullable<System.DateTime> Extention { get; set; }
     
         public virtual Agent Agent1 { get; set; }
         public virtual Car Car1 { get; set; }

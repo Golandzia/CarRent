@@ -83,6 +83,7 @@
           <Property Name="Renter" Type="int" Nullable="false" />
           <Property Name="Rent_type" Type="int" Nullable="false" />
           <Property Name="Agent" Type="int" Nullable="false" />
+          <Property Name="Extention" Type="datetime" />
         </EntityType>
         <EntityType Name="Rent_type">
           <Key>
@@ -387,6 +388,7 @@
           <Property Name="Renter" Type="Int32" Nullable="false" />
           <Property Name="Rent_type" Type="Int32" Nullable="false" />
           <Property Name="Agent" Type="Int32" Nullable="false" />
+          <Property Name="Extention" Type="DateTime" Precision="3" />
           <NavigationProperty Name="Agent1" Relationship="Self.FK_Rent_Agent" FromRole="Rent" ToRole="Agent" />
           <NavigationProperty Name="Car1" Relationship="Self.FK_Rent_Car" FromRole="Rent" ToRole="Car" />
           <NavigationProperty Name="Rent_type1" Relationship="Self.FK_Rent_Rent_type" FromRole="Rent" ToRole="Rent_type" />
@@ -547,7 +549,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="CarRentEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="CarRentEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Agent" EntityType="Self.Agent" />
           <EntitySet Name="Car" EntityType="Self.Car" />
           <EntitySet Name="Car_status" EntityType="Self.Car_status" />
@@ -605,7 +607,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище CarRentModelContainer" CdmEntityContainer="CarRentEntities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище CarRentModelContainer" CdmEntityContainer="CarRentEntities1">
           <EntitySetMapping Name="Agent">
             <EntityTypeMapping TypeName="CarRentModel.Agent">
               <MappingFragment StoreEntitySet="Agent">
@@ -690,6 +692,7 @@
                 <ScalarProperty Name="Renter" ColumnName="Renter" />
                 <ScalarProperty Name="Rent_type" ColumnName="Rent_type" />
                 <ScalarProperty Name="Agent" ColumnName="Agent" />
+                <ScalarProperty Name="Extention" ColumnName="Extention" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

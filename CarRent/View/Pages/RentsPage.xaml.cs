@@ -28,5 +28,15 @@ namespace CarRent.View.Pages
 
             this.DataContext = new RentsPageVM(agent);
         }
+
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            (DataContext as RentsPageVM).DeleteRent();
+        }
+
+        private void AddButton_Click(object sender, RoutedEventArgs e)
+        {
+            (DataContext as RentsPageVM).AddRent(null);
+        }
     }
 }

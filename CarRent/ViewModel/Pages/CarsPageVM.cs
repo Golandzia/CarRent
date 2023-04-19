@@ -70,7 +70,7 @@ namespace CarRent.ViewModel
         {
             var messageBoxResult = MessageBox.Show("The selected object will be permanently deleted.\nContinue?", "Warning", MessageBoxButton.YesNo, MessageBoxImage.Warning);
 
-            using (var db = new CarRentEntities())
+            using (var db = new CarRentEntities1())
             {
                 if (messageBoxResult == MessageBoxResult.Yes)
                 {
