@@ -202,7 +202,7 @@ namespace CarRent.ViewModel.Windows
             _rent.Renter = Renter.ID;
             _rent.Rent_type = Rent_Type.ID;
             _rent.Extention = RentExtentionTime;
-            _rent.Agent = 5;
+            _rent.Agent = (int)6;
 
             try
             {

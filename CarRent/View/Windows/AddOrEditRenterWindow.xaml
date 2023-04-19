@@ -9,7 +9,7 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterOwner"
         ResizeMode="NoResize"
-        Title="{Binding HeaderDescription}" Height="770" Width="450">
+        Title="{Binding HeaderDescription}" Height="800" Width="450">
     <Grid Style="{DynamicResource GridBackgroundAllApp}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
